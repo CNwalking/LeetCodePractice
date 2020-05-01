@@ -1,6 +1,7 @@
 package Code;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * @Author: CNwalking
@@ -81,37 +82,23 @@ public class ListNode {
     }
 
     /**
-     * 逆序链表(改变原先结构) 思路：
-     * (1). 若链表为空或只有一个元素，则直接返回；
-     * (2). 设置两个前后相邻的指针p,q. 将p所指向的节点作为q指向节点的后继；
-     * (3). 重复2直到q为空
-     * (4). 调整链表头和链表尾
+     * 逆序输出链表(不改变链表结构)
      */
     public void reverseOrderOutput() {
-        // 就一个的话就是它自己,不操作
-        if (this.next == null) {
-            return;
-        } else {
-            // 先拿到它后面两个节点
-            ListNode p = this.getNext();
-            ListNode q = this.getNext().getNext();
-            // 假设是 -> a -> b -> c -> d ->
-            // 先把 b -> c 断开 变成  -> a -> b    c -> d ->
-            p.setNext(null);
-            ListNode temp = null;
-            while (q != null) {
-                temp = q.getNext();
-                // 方向反一反 -> a -> b <- c -> d ->
-                q.setNext(p);
-                // 下面两步是往后推进这个过程
-                p = q;
-                q = temp;
-                // -> a -> b <- c <- d -> ...... 最后变成 -> a (<->) b <- ...
-            }
-            // 此时已经到达最后一位
-            this.setNext(p);
-            q = null;
+        Stack<ListNode> stack = new Stack<ListNode>();
+        ListNode node = this;
+        StringBuilder s = new StringBuilder();
+        s.append("reverseOrderOutput: ");
+        while (node != null) {
+            stack.push(node);
+            node = node.next;
         }
-
+        while (!stack.empty()) {
+            s.append(stack.pop().val).append("->");
+        }
+        s.append("null");
+        System.out.println(s.toString());
     }
+
+
 }

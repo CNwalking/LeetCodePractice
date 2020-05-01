@@ -1,5 +1,7 @@
 package Code;
 
+import static Code.ListNodeUtils.*;
+
 /**
  * @Author: CNwalking
  * @DateTime: 2020/4/30 1:52 下午
@@ -46,11 +48,16 @@ public class twoSum {
 
     public static void main(String[] args) {
         ListNode l1 = ListNode.createNode(new int[]{1, 2, 3});
-        ListNode l2 = ListNode.createNode(new int[]{4, 5, 7});
+        ListNode l2 = ListNode.createNode(new int[]{4, 5, 6});
+        ListNode l3 = ListNode.createNode(new int[]{1, 2, 3, 4, 5, 6});
+        ListNode l4 = ListNode.createNode(new int[]{1, 2, 3, 4});
+
         ListNode result = addTwoNumbers(l1, l2);
         l1.orderOutput();
-        l2.reverseOrderOutput();
-        l2.orderOutput();
+//        reverseOrderOutput(l3);
+//        reverseOrderOutputRecursively(l4);
+        l3.orderOutput();
+        l4.reverseOrderOutput();
         result.orderOutput();
 
     }
