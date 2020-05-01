@@ -13,7 +13,7 @@ import static Code.ListNodeUtils.*;
 public class twoSum {
 
     /**
-     * 首先想到的是直接用淳朴(憨憨)方法做
+     * 首先想到的是直接用淳朴方法做
      * @param l1
      * @param l2
      * @return
